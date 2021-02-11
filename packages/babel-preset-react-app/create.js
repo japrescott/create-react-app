@@ -73,6 +73,9 @@ module.exports = function (api, opts, env) {
           targets: {
             node: 'current',
           },
+          exclude: [
+            'babel-plugin-transform-exponentiation-operator'
+          ]
         },
       ],
       (isEnvProduction || isEnvDevelopment) && [
@@ -84,7 +87,10 @@ module.exports = function (api, opts, env) {
           // Set the corejs version we are using to avoid warnings in console
           corejs: 3,
           // Exclude transforms that make all code slower
-          exclude: ['transform-typeof-symbol'],
+          exclude: [
+            'transform-typeof-symbol',
+            'babel-plugin-transform-exponentiation-operator'
+          ],
         },
       ],
       [
